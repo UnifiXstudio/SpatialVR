@@ -10,13 +10,14 @@ targets:
     deploymentTarget: "15.0"
     sources:
       - path: SpatialVR
+        excludes:
+          - "Info.plist"
     info:
       path: SpatialVR/Info.plist
     settings:
       base:
         PRODUCT_BUNDLE_IDENTIFIER: com.spatialvr.desktop
         TARGETED_DEVICE_FAMILY: 1,2
-        INFOPLIST_FILE: SpatialVR/Info.plist
         CODE_SIGN_STYLE: Manual
         CODE_SIGN_IDENTITY: ""
         CODE_SIGNING_REQUIRED: NO

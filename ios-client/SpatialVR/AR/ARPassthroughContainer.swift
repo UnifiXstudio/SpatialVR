@@ -43,7 +43,6 @@ struct ARPassthroughContainer: UIViewRepresentable {
         var screenNode: SCNNode?
         var screenMaterial: SCNMaterial?
         var arView: ARSCNView?
-        var hasPositionedScreen = false
         
         init(streamClient: StreamClient) {
             self.streamClient = streamClient
@@ -52,7 +51,6 @@ struct ARPassthroughContainer: UIViewRepresentable {
         func setupScene(arView: ARSCNView) {
             self.arView = arView
             
-            // Create Screen Node
             let width: CGFloat = 1.6
             let height: CGFloat = 0.9
             let plane = SCNPlane(width: width, height: height)
@@ -66,7 +64,7 @@ struct ARPassthroughContainer: UIViewRepresentable {
             self.screenMaterial = material
             let node = SCNNode(geometry: plane)
             node.name = "virtualMonitor"
-            node.position = SCNVector3(0, 0, -1.8) // 1.8m in front
+            node.position = SCNVector3(x: 0, y: 0, z: -1.8)
             
             arView.scene.rootNode.addChildNode(node)
             self.screenNode = node
@@ -79,18 +77,18 @@ struct ARPassthroughContainer: UIViewRepresentable {
                 screenMaterial?.diffuse.contents = image
             }
             
-            screenNode.scale = SCNVector3(scale, scale, scale)
+            screenNode.scale = SCNVector3(x: scale, y: scale, z: scale)
         }
         
         func session(_ session: ARSession, didUpdate frame: ARFrame) {
-            // Raycast forward from camera center to detect gaze onto virtual monitor
             guard let arView = arView, let screenNode = screenNode else { return }
             
             let centerPoint = CGPoint(x: arView.bounds.midX, y: arView.bounds.midY)
-            let hitResults = arView.hitTest(centerPoint, options: [
-                .rootNode: screenNode,
-                .searchMode: SCNHitTestSearchMode.all.rawValue
-            ])
+            let options: [SCNHitTestOption: Any] = [
+                SCNHitTestOption.rootNode: screenNode,
+                SCNHitTestOption.searchMode: SCNHitTestSearchMode.all.rawValue
+            ]
+            let hitResults = arView.hitTest(centerPoint, options: options)
             
             if let firstHit = hitResults.first {
                 let uv = firstHit.textureCoordinates(withMappingChannel: 0)
