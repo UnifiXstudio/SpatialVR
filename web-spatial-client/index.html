@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="apple-mobile-web-app-title" content="SpatialVR">
+  <link rel="manifest" href="manifest.json">
+  <title>Spatial VR Desktop</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Three.js from CDN with fallback -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+</head>
+<body>
+  <!-- AR Camera Passthrough Background Video (For AR Mode) -->
+  <video id="arVideo" autoplay playsinline muted></video>
+
+  <!-- WebGL 3D Canvas -->
+  <canvas id="glCanvas"></canvas>
+
+  <!-- Gaze Pointer Crosshair for VR mode -->
+  <div id="gazePointer" class="gaze-pointer hidden">
+    <div class="gaze-dot"></div>
+    <svg class="gaze-progress" viewBox="0 0 36 36">
+      <path class="circle-bg" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+      <path class="circle-bar" id="gazeCircle" stroke-dasharray="0, 100" d="M18 2.0845 a 15.9155 15.9155 0 0 1 0 31.831 a 15.9155 15.9155 0 0 1 0 -31.831"/>
+    </svg>
+  </div>
+
+  <!-- Top Status Bar -->
+  <header id="topBar" class="glass-panel">
+    <div class="brand">
+      <span class="logo-icon">🥽</span>
+      <span class="brand-title">Spatial VR</span>
+    </div>
+    <div class="status-indicators">
+      <span id="connStatus" class="badge connecting">Připojování...</span>
+      <span id="fpsCounter" class="badge fps">0 FPS</span>
+      <span id="pingCounter" class="badge ping">-- ms</span>
+    </div>
+    <button id="btnSettings" class="icon-btn" title="Nastavení">⚙️</button>
+  </header>
+
+  <!-- Mode Switcher Floating Bar (Quest 3 Style) -->
+  <nav id="modeBar" class="glass-panel bottom-nav">
+    <button id="btnMode2D" class="mode-btn active" data-mode="2d">
+      <span class="btn-icon">📱</span>
+      <span>2D Touch</span>
+    </button>
+    <button id="btnModeAR" class="mode-btn" data-mode="ar">
+      <span class="btn-icon">👁️</span>
+      <span>AR Passthrough</span>
+    </button>
+    <button id="btnModeVR" class="mode-btn" data-mode="vr">
+      <span class="btn-icon">🥽</span>
+      <span>VR Headset</span>
+    </button>
+    <button id="btnRecenter" class="icon-btn" title="Vycentrovat pohled">🎯</button>
+    <button id="btnFullscreen" class="icon-btn" title="Celá obrazovka">⛶</button>
+  </nav>
+
+  <!-- VR Center Divider Line for Stereo Headset mode -->
+  <div id="vrDivider" class="vr-divider hidden"></div>
+
+  <!-- Settings Modal / Drawer -->
+  <div id="settingsModal" class="modal hidden">
+    <div class="modal-content glass-panel">
+      <div class="modal-header">
+        <h2>Nastavení Spatial VR</h2>
+        <button id="btnCloseSettings" class="close-btn">&times;</button>
+      </div>
+      <div class="modal-body">
+        <div class="setting-group">
+          <label>Virtuální prostředí (VR režim)</label>
+          <select id="envSelect">
+            <option value="grid">Cyber Grid (Neonová síť)</option>
+            <option value="cinema">Virtuální Kino (Dark Theater)</option>
+            <option value="void">Minimalistický Void (Černý prostor)</option>
+            <option value="gradient">Deep Space Gradient</option>
+          </select>
+        </div>
+
+        <div class="setting-group">
+          <label>Zakřivení obrazovky (Curved Ultrawide)</label>
+          <input type="range" id="sliderCurvature" min="0" max="60" value="25">
+          <span id="valCurvature" class="val-display">25°</span>
+        </div>
+
+        <div class="setting-group">
+          <label>Vzdálenost obrazovky</label>
+          <input type="range" id="sliderDistance" min="1.0" max="5.0" step="0.1" value="2.2">
+          <span id="valDistance" class="val-display">2.2 m</span>
+        </div>
+
+        <div class="setting-group">
+          <label>Velikost obrazovky</label>
+          <input type="range" id="sliderScale" min="0.5" max="3.0" step="0.1" value="1.5">
+          <span id="valScale" class="val-display">1.5x</span>
+        </div>
+
+        <div class="setting-group">
+          <label>Rozteč očí (IPD ve VR režimu)</label>
+          <input type="range" id="sliderIPD" min="50" max="75" value="64">
+          <span id="valIPD" class="val-display">64 mm</span>
+        </div>
+
+        <div class="setting-group">
+          <label>Sensory iPhonu (Gyroskop)</label>
+          <button id="btnRequestGyro" class="action-btn">Povolit senzory pohybu</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Touch Virtual Controls Overlay -->
+  <div id="touchControls" class="touch-controls hidden">
+    <div id="leftClickZone" class="click-zone left-click">Levé kliknutí</div>
+    <div id="rightClickZone" class="click-zone right-click">Pravé kliknutí</div>
+  </div>
+
+  <script src="app.js"></script>
+</body>
+</html>

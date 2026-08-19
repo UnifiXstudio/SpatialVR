@@ -1,0 +1,17 @@
+# Dependencies
+node_modules/
+windows-server/node_modules/
+
+# Build artifacts
+bin/
+obj/
+windows-server/bin/
+windows-server/obj/
+windows-server/native-capturer/bin/
+windows-server/native-capturer/obj/
+ios-client/build/
+*.ipa
+
+# OS files
+.DS_Store
+Thumbs.db

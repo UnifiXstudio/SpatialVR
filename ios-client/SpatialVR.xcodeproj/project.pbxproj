@@ -1,0 +1,308 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 56;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		AA1000012C70000000000001 /* SpatialVRApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1000012C70000000000001 /* SpatialVRApp.swift */; };
+		AA1000022C70000000000002 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1000022C70000000000002 /* ContentView.swift */; };
+		AA1000032C70000000000003 /* ARPassthroughContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1000032C70000000000003 /* ARPassthroughContainer.swift */; };
+		AA1000042C70000000000004 /* StereoVRContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1000042C70000000000004 /* StereoVRContainer.swift */; };
+		AA1000052C70000000000005 /* StreamClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = BB1000052C70000000000005 /* StreamClient.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		CC1000002C70000000000000 /* SpatialVR.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpatialVR.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		BB1000012C70000000000001 /* SpatialVRApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SpatialVRApp.swift; sourceTree = "<group>"; };
+		BB1000022C70000000000002 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		BB1000032C70000000000003 /* ARPassthroughContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ARPassthroughContainer.swift; sourceTree = "<group>"; };
+		BB1000042C70000000000004 /* StereoVRContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StereoVRContainer.swift; sourceTree = "<group>"; };
+		BB1000052C70000000000005 /* StreamClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StreamClient.swift; sourceTree = "<group>"; };
+		BB1000062C70000000000006 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		DD1000002C70000000000000 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		EE1000002C70000000000000 = {
+			isa = PBXGroup;
+			children = (
+				EE1000012C70000000000001 /* SpatialVR */,
+				EE1000022C70000000000002 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		EE1000012C70000000000001 /* SpatialVR */ = {
+			isa = PBXGroup;
+			children = (
+				EE1000032C70000000000003 /* App */,
+				EE1000042C70000000000004 /* Views */,
+				EE1000052C70000000000005 /* AR */,
+				EE1000062C70000000000006 /* VR */,
+				EE1000072C70000000000007 /* Streaming */,
+				BB1000062C70000000000006 /* Info.plist */,
+			);
+			path = SpatialVR;
+			sourceTree = "<group>";
+		};
+		EE1000032C70000000000003 /* App */ = {
+			isa = PBXGroup;
+			children = (
+				BB1000012C70000000000001 /* SpatialVRApp.swift */,
+			);
+			path = App;
+			sourceTree = "<group>";
+		};
+		EE1000042C70000000000004 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				BB1000022C70000000000002 /* ContentView.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EE1000052C70000000000005 /* AR */ = {
+			isa = PBXGroup;
+			children = (
+				BB1000032C70000000000003 /* ARPassthroughContainer.swift */,
+			);
+			path = AR;
+			sourceTree = "<group>";
+		};
+		EE1000062C70000000000006 /* VR */ = {
+			isa = PBXGroup;
+			children = (
+				BB1000042C70000000000004 /* StereoVRContainer.swift */,
+			);
+			path = VR;
+			sourceTree = "<group>";
+		};
+		EE1000072C70000000000007 /* Streaming */ = {
+			isa = PBXGroup;
+			children = (
+				BB1000052C70000000000005 /* StreamClient.swift */,
+			);
+			path = Streaming;
+			sourceTree = "<group>";
+		};
+		EE1000022C70000000000002 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CC1000002C70000000000000 /* SpatialVR.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FF1000002C70000000000000 /* SpatialVR */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = GG1000002C70000000000000 /* Build configuration list for PBXNativeTarget "SpatialVR" */;
+			buildPhases = (
+				DD1000012C70000000000001 /* Sources */,
+				DD1000002C70000000000000 /* Frameworks */,
+				DD1000022C70000000000002 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = SpatialVR;
+			productName = SpatialVR;
+			productReference = CC1000002C70000000000000 /* SpatialVR.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		001000002C70000000000000 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				BuildIndependentTargetsInParallel = 1;
+				LastSwiftUpdateCheck = 1500;
+				LastUpgradeCheck = 1500;
+				TargetAttributes = {
+					FF1000002C70000000000000 = {
+						CreatedOnToolsVersion = 15.0;
+					};
+				};
+			};
+			buildConfigurationList = GG1000012C70000000000001 /* Build configuration list for PBXProject "SpatialVR" */;
+			compatibilityVersion = "Xcode 14.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = EE1000002C70000000000000;
+			productRefGroup = EE1000022C70000000000002 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FF1000002C70000000000000 /* SpatialVR */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		DD1000022C70000000000002 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		DD1000012C70000000000001 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				AA1000012C70000000000001 /* SpatialVRApp.swift in Sources */,
+				AA1000022C70000000000002 /* ContentView.swift in Sources */,
+				AA1000032C70000000000003 /* ARPassthroughContainer.swift in Sources */,
+				AA1000042C70000000000004 /* StereoVRContainer.swift in Sources */,
+				AA1000052C70000000000005 /* StreamClient.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		111000002C70000000000000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		111000012C70000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++20";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_NO_COMMON_BLOCKS = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		221000002C70000000000000 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SpatialVR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spatialvr.desktop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Debug;
+		};
+		221000012C70000000000001 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = "";
+				GENERATE_INFOPLIST_FILE = NO;
+				INFOPLIST_FILE = SpatialVR/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				MARKETING_VERSION = 1.0;
+				PRODUCT_BUNDLE_IDENTIFIER = com.spatialvr.desktop;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = 1;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		GG1000002C70000000000000 /* Build configuration list for PBXNativeTarget "SpatialVR" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				221000002C70000000000000 /* Debug */,
+				221000012C70000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		GG1000012C70000000000001 /* Build configuration list for PBXProject "SpatialVR" */ = {
+			isa = PBXConfigurationList;
+			buildConfigurations = (
+				111000002C70000000000000 /* Debug */,
+				111000012C70000000000001 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+	};
+	rootObject = 001000002C70000000000000 /* Project object */;
+}
