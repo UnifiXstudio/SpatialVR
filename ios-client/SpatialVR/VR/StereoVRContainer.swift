@@ -79,7 +79,7 @@ struct StereoVRContainer: UIViewRepresentable {
             plane.materials = [screenMaterial]
             
             screenNode.geometry = plane
-            screenNode.position = SCNVector3(0, 0, -2.2)
+            screenNode.position = SCNVector3(x: 0, y: 0, z: -2.2)
             scene.rootNode.addChildNode(screenNode)
             
             // Floor Grid
@@ -89,7 +89,7 @@ struct StereoVRContainer: UIViewRepresentable {
             floorMat.diffuse.contents = UIColor(white: 0.05, alpha: 1.0)
             floor.materials = [floorMat]
             let floorNode = SCNNode(geometry: floor)
-            floorNode.position = SCNVector3(0, -1.2, 0)
+            floorNode.position = SCNVector3(x: 0, y: -1.2, z: 0)
             scene.rootNode.addChildNode(floorNode)
             
             // Cameras
@@ -97,13 +97,13 @@ struct StereoVRContainer: UIViewRepresentable {
             leftCam.zNear = 0.1
             leftCam.zFar = 100
             leftCameraNode.camera = leftCam
-            leftCameraNode.position = SCNVector3(-0.032, 0, 0) // Left eye offset
+            leftCameraNode.position = SCNVector3(x: -0.032, y: 0, z: 0)
             
             let rightCam = SCNCamera()
             rightCam.zNear = 0.1
             rightCam.zFar = 100
             rightCameraNode.camera = rightCam
-            rightCameraNode.position = SCNVector3(0.032, 0, 0) // Right eye offset
+            rightCameraNode.position = SCNVector3(x: 0.032, y: 0, z: 0)
             
             cameraRig.addChildNode(leftCameraNode)
             cameraRig.addChildNode(rightCameraNode)
@@ -124,10 +124,8 @@ struct StereoVRContainer: UIViewRepresentable {
             motionManager.startDeviceMotionUpdates(using: .xArbitraryZVertical, to: .main) { [weak self] motion, _ in
                 guard let self = self, let motion = motion else { return }
                 
-                let attitude = motion.attitude
-                // Convert attitude quaternion to SceneKit orientation
-                let q = attitude.quaternion
-                self.cameraRig.orientation = SCNQuaternion(Float(q.x), Float(q.y), Float(-q.z), Float(q.w))
+                let q = motion.attitude.quaternion
+                self.cameraRig.orientation = SCNVector4(x: Float(q.x), y: Float(q.y), z: Float(-q.z), w: Float(q.w))
             }
         }
         

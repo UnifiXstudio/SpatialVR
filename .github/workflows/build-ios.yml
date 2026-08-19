@@ -18,15 +18,15 @@ jobs:
       - name: Build SpatialVR App
         run: |
           cd ios-client
-          xcodebuild build \
-            -project SpatialVR.xcodeproj \
+          xcodebuild -project SpatialVR.xcodeproj \
             -scheme SpatialVR \
             -configuration Release \
-            -destination "generic/platform=iOS" \
+            -sdk iphoneos \
             -derivedDataPath build \
             CODE_SIGN_IDENTITY="" \
             CODE_SIGNING_REQUIRED=NO \
-            CODE_SIGNING_ALLOWED=NO
+            CODE_SIGNING_ALLOWED=NO \
+            AD_HOC_CODE_SIGNING_ALLOWED=YES
 
       - name: Package to IPA
         run: |

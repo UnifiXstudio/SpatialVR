@@ -10,7 +10,7 @@ enum AppMode {
 struct ContentView: View {
     @StateObject private var streamClient = StreamClient()
     @State private var currentMode: AppMode = .connection
-    @State private var serverIP: String = "192.168.1.100"
+    @State private var serverIP: String = "172.20.10.2"
     
     // Spatial Settings
     @State private var screenDistance: Float = 2.0
@@ -62,7 +62,7 @@ struct ContentView: View {
     
     var connectionView: some View {
         VStack(spacing: 24) {
-            Image(systemName: "visionpro")
+            Image(systemName: "eyeglasses")
                 .font(.system(size: 64))
                 .foregroundColor(.cyan)
                 .padding(.top, 40)
@@ -83,7 +83,7 @@ struct ContentView: View {
                     .font(.caption)
                     .foregroundColor(.gray)
                 
-                TextField("192.168.x.x", text: $serverIP)
+                TextField("172.20.10.2", text: $serverIP)
                     .padding()
                     .background(Color.white.opacity(0.1))
                     .cornerRadius(10)
